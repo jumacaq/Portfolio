@@ -1,753 +1,468 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="en" class="scroll-smooth">
 <head>
-  <meta charset="utf-8">
-  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Juan Campos Quintana | Data Scientist & AI Engineer</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js"></script>
 
-  <title>Juan Campos Portfolio Data Analyst</title>
-  <meta content="" name="description">
-  <meta content="" name="keywords">
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        obsidian: '#0b0f19',
+                        slateCard: 'rgba(17, 24, 39, 0.7)',
+                        cyanGlow: '#06b6d4',
+                        violetGlow: '#8b5cf6',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        mono: ['JetBrains Mono', 'monospace'],
+                    }
+                }
+            }
+        }
+    </script>
 
-  <!-- Favicons -->
-  <link href="assets/img/favicon.png" rel="icon">
-  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+    <style>
+        body {
+            background-color: #0b0f19;
+            color: #f3f4f6;
+            font-family: 'Inter', sans-serif;
+            overflow-x: hidden;
+        }
 
-  <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+        /* Glassmorphism card styles */
+        .glass-card {
+            background: rgba(17, 24, 39, 0.65);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
 
-  <!-- Vendor CSS Files -->
-  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
-  <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
-  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
-  <link href="assets/vendor/remixicon/remixicon.css" rel="stylesheet">
-  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+        .glass-card:hover {
+            border-color: rgba(6, 182, 212, 0.4);
+            transform: translateY(-4px);
+            box-shadow: 0 12px 30px -10px rgba(6, 182, 212, 0.15);
+        }
 
-  <!-- Template Main CSS File -->
-  <link href="assets/css/style.css" rel="stylesheet">
+        .glass-nav {
+            background: rgba(11, 15, 25, 0.8);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
 
-  <!-- =======================================================
-  * Template Name: Personal
-  * Updated: Jan 29 2024 with Bootstrap v5.3.2
-  * Template URL: https://bootstrapmade.com/personal-free-resume-bootstrap-template/
-  * Author: BootstrapMade.com
-  * License: https://bootstrapmade.com/license/
-  ======================================================== -->
+        /* Ambient Glow Effect */
+        .glow-bg {
+            position: absolute;
+            width: 350px;
+            height: 350px;
+            border-radius: 50%;
+            filter: blur(120px);
+            opacity: 0.18;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .gradient-text {
+            background: linear-gradient(135deg, #38bdf8 0%, #818cf8 50%, #c084fc 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #0b0f19;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #1f2937;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #374151;
+        }
+    </style>
 </head>
+<body class="relative antialiased selection:bg-cyan-500 selection:text-white">
 
-<body>
+    <!-- Ambient background glows -->
+    <div class="glow-bg bg-cyan-500 top-10 left-1/4"></div>
+    <div class="glow-bg bg-violet-600 top-96 right-10"></div>
+    <div class="glow-bg bg-indigo-500 bottom-20 left-10"></div>
 
-  <!-- ======= Header ======= -->
-  <header id="header">
-    <div class="container">
+    <!-- Sticky Navigation -->
+    <nav class="fixed top-0 left-0 w-full z-50 glass-nav">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <!-- Brand / Monogram -->
+                <a href="#" class="flex items-center space-x-2 font-mono font-bold text-lg text-white">
+                    <span class="text-cyan-400">&lt;</span>
+                    <span class="tracking-tight">jumacaq</span>
+                    <span class="text-violet-400">/&gt;</span>
+                </a>
 
-      <h1><a href="index.html">Juan Campos</a></h1>
-      <!-- Uncomment below if you prefer to use an image logo -->
-      <!-- <a href="index.html" class="mr-auto"><img src="assets/img/logo.png" alt="" class="img-fluid"></a> -->
-      <h2>I'm a passionate <span>data analyst</span> anxious to get insights</h2>
+                <!-- Desktop Nav Links -->
+                <div class="hidden md:flex items-center space-x-8 text-sm font-medium text-gray-300">
+                    <a href="#about" class="hover:text-cyan-400 transition-colors">About</a>
+                    <a href="#projects" class="hover:text-cyan-400 transition-colors">Projects</a>
+                    <a href="#techstack" class="hover:text-cyan-400 transition-colors">Tech Stack</a>
+                    <a href="#contact" class="hover:text-cyan-400 transition-colors">Contact</a>
+                </div>
 
-      <nav id="navbar" class="navbar">
-        <ul>
-          <li><a class="nav-link active" href="#header">Home</a></li>
-          <li><a class="nav-link" href="#about">About</a></li>
-          <li><a class="nav-link" href="#resume">Resume</a></li>
-          <li><a class="nav-link" href="#services">Portfolio</a></li>
-          <li><a class="nav-link" href="#contact">Contact</a></li>
-        </ul>
-        <i class="bi bi-list mobile-nav-toggle"></i>
-      </nav><!-- .navbar -->
+                <!-- Action Button -->
+                <div class="hidden md:block">
+                    <a href="mailto:adrimarcprr@gmail.com" class="px-4 py-2 rounded-lg text-xs font-semibold bg-cyan-500/10 text-cyan-400 border border-cyan-500/30 hover:bg-cyan-500/20 transition-all duration-200">
+                        <i class="fa-regular fa-paper-plane mr-1.5"></i> Get in Touch
+                    </a>
+                </div>
 
-      <div class="social-links">
-        <a href="https://github.com/jumacaq" target="_blank" class="github"><i class="bi bi-github"></i></a>
-        <!--<a href="#" class="facebook"><i class="bi bi-facebook"></i></a>
-        <a href="#" class="instagram"><i class="bi bi-instagram"></i></a>-->
-        <a href="https://www.linkedin.com/in/jumacaq/" target="_blank" class="linkedin"><i class="bi bi-linkedin"></i></a>
-      </div>
-
-    </div>
-  </header><!-- End Header -->
-
-  <!-- ======= About Section ======= -->
-  <section id="about" class="about">
-
-    <!-- ======= About Me ======= -->
-    <div class="about-me container">
-
-      <div class="section-title">
-        <h2>About</h2>
-        <p>Learn more about me</p>
-      </div>
-
-      <div class="row">
-        <div class="col-lg-4" data-aos="fade-right">
-          <img src="assets/img/jcq_2024.png" class="img-fluid" alt="">
-        </div>
-        <div class="col-lg-8 pt-4 pt-lg-0 content" data-aos="fade-left">
-          <h3>Data Analyst &amp; Python programmer</h3>
-          <p class="fst-italic">
-            I'm a data enthusiast with a foundation in statistical analysis and data visualization and a burgeoning skill set in Python and SQL. Eager to explore machine learning. I like to decode stories hidden in numbers.
-          </p>
-          <div class="row">
-            <div class="col-lg-6">
-              <ul>
-                <!--<li><i class="bi bi-chevron-right"></i> <strong>Birthday:</strong> <span>1 May 1995</span></li>-->
-                <li><i class="bi bi-chevron-right"></i> <strong>Website:</strong> <span>https://jumacaq.github.io/Portfolio/</span></li>
-                <!--<li><i class="bi bi-chevron-right"></i> <strong>Email:</strong> <span>data_analyst_jcq@outlook.com</span></li>-->
-                <li><i class="bi bi-chevron-right"></i> <strong>City:</strong> <span>Lima, Peru</span></li>
-              </ul>
+                <!-- Mobile menu button -->
+                <div class="md:hidden">
+                    <button id="mobile-menu-btn" class="p-2 text-gray-400 hover:text-white focus:outline-none">
+                        <i class="fa-solid fa-bars text-xl"></i>
+                    </button>
+                </div>
             </div>
-            <div class="col-lg-6">
-              <ul>
-                <!--<li><i class="bi bi-chevron-right"></i> <strong>Age:</strong> <span>30</span></li>-->
-                <li><i class="bi bi-chevron-right"></i> <strong>Degree:</strong> <span>Data Analyst</span></li>
-                <!--<li><i class="bi bi-chevron-right"></i> <strong>PhEmailone:</strong> <span>email@example.com</span></li>-->
-                <li><i class="bi bi-chevron-right"></i> <strong>Freelance:</strong> <span>Available</span></li>
-              </ul>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden glass-nav px-4 pt-2 pb-6 space-y-3">
+            <a href="#about" class="block text-gray-300 hover:text-cyan-400 font-medium text-base">About</a>
+            <a href="#projects" class="block text-gray-300 hover:text-cyan-400 font-medium text-base">Projects</a>
+            <a href="#techstack" class="block text-gray-300 hover:text-cyan-400 font-medium text-base">Tech Stack</a>
+            <a href="#contact" class="block text-gray-300 hover:text-cyan-400 font-medium text-base">Contact</a>
+            <a href="mailto:adrimarcprr@gmail.com" class="inline-block mt-2 px-4 py-2 rounded-lg text-xs font-semibold bg-cyan-500/10 text-cyan-400 border border-cyan-500/30">
+                Get in Touch
+            </a>
+        </div>
+    </nav>
+
+    <!-- Main Content Container -->
+    <main class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pt-28 space-y-24">
+
+        <!-- Hero Section -->
+        <section id="hero" class="min-h-[80vh] flex flex-col justify-center items-start space-y-8 relative z-10 pt-8">
+            <div class="inline-flex items-center space-x-2 px-3 py-1.5 rounded-full bg-slate-800/80 border border-slate-700/60 text-xs font-mono text-cyan-400">
+                <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+                <span>Open for Data Science & ML Engineering Opportunities</span>
             </div>
-          </div>
-          <!--<p>
-            Officiis eligendi itaque labore et dolorum mollitia officiis optio vero. Quisquam sunt adipisci omnis et ut. Nulla accusantium dolor incidunt officia tempore. Et eius omnis.
-            Cupiditate ut dicta maxime officiis quidem quia. Sed et consectetur qui quia repellendus itaque neque. Aliquid amet quidem ut quaerat cupiditate. Ab et eum qui repellendus omnis culpa magni laudantium dolores.
-          </p>-->
-        </div>
-      </div>
 
-    </div><!-- End About Me -->
-
-    <!-- ======= Counts ======= 
-    <div class="counts container">
-
-      <div class="row">
-
-        <div class="col-lg-3 col-md-6">
-          <div class="count-box">
-            <i class="bi bi-emoji-smile"></i>
-            <span data-purecounter-start="0" data-purecounter-end="232" data-purecounter-duration="1" class="purecounter"></span>
-            <p>Happy Clients</p>
-          </div>
-        </div>
-
-        <div class="col-lg-3 col-md-6 mt-5 mt-md-0">
-          <div class="count-box">
-            <i class="bi bi-journal-richtext"></i>
-            <span data-purecounter-start="0" data-purecounter-end="521" data-purecounter-duration="1" class="purecounter"></span>
-            <p>Projects</p>
-          </div>
-        </div>
-
-        <div class="col-lg-3 col-md-6 mt-5 mt-lg-0">
-          <div class="count-box">
-            <i class="bi bi-headset"></i>
-            <span data-purecounter-start="0" data-purecounter-end="1463" data-purecounter-duration="1" class="purecounter"></span>
-            <p>Hours Of Support</p>
-          </div>
-        </div>
-
-        <div class="col-lg-3 col-md-6 mt-5 mt-lg-0">
-          <div class="count-box">
-            <i class="bi bi-award"></i>
-            <span data-purecounter-start="0" data-purecounter-end="24" data-purecounter-duration="1" class="purecounter"></span>
-            <p>Awards</p>
-          </div>
-        </div>
-
-      </div>
-
-    </div>< End Counts -->
-
-    <!-- ======= Skills  ======= -->
-    <div class="skills container">
-
-      <div class="section-title">
-        <h2>Skills</h2>
-      </div>
-
-      <div class="row skills-content">
-
-        <div class="col-lg-6">
-
-          <div class="progress">
-            <span class="skill">Python <i class="val">60%</i></span>
-            <div class="progress-bar-wrap">
-              <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"></div>
+            <div class="space-y-4 max-w-3xl">
+                <h1 class="text-4xl sm:text-6xl font-extrabold tracking-tight text-white leading-tight">
+                    Juan Campos Quintana
+                </h1>
+                <h2 class="text-xl sm:text-2xl font-medium text-gray-400">
+                    <span class="gradient-text font-semibold">Data Scientist & AI Engineer</span> | Time Series & Data Pipelines
+                </h2>
+                <p class="text-base sm:text-lg text-gray-400 leading-relaxed font-normal">
+                    Specialized in solving real-world challenges through end-to-end Machine Learning, automated ETL scraping pipelines, and agentic RAG architectures. Based in <span class="text-gray-200 font-medium"><i class="fa-solid fa-location-dot text-rose-500 mr-1"></i>Lima, Peru</span>.
+                </p>
             </div>
-          </div>
 
-          <div class="progress">
-            <span class="skill">SQL <i class="val">70%</i></span>
-            <div class="progress-bar-wrap">
-              <div class="progress-bar" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100"></div>
+            <!-- CTA Buttons & Social Links -->
+            <div class="flex flex-wrap items-center gap-4 pt-2">
+                <a href="#projects" class="px-6 py-3 rounded-lg text-sm font-semibold bg-cyan-500 text-obsidian font-medium hover:bg-cyan-400 transition-all shadow-lg shadow-cyan-500/20">
+                    <i class="fa-solid fa-diagram-project mr-2"></i> View Featured Projects
+                </a>
+                <a href="https://github.com/jumacaq" target="_blank" rel="noopener" class="px-6 py-3 rounded-lg text-sm font-medium glass-card text-gray-200 hover:text-white flex items-center space-x-2">
+                    <i class="fa-brands fa-github text-lg"></i>
+                    <span>GitHub Profile</span>
+                </a>
+                <a href="https://www.linkedin.com/in/jumacaq/" target="_blank" rel="noopener" class="p-3 rounded-lg glass-card text-gray-300 hover:text-cyan-400">
+                    <i class="fa-brands fa-linkedin-in text-lg"></i>
+                </a>
+                <a href="mailto:adrimarcprr@gmail.com" class="p-3 rounded-lg glass-card text-gray-300 hover:text-rose-400">
+                    <i class="fa-regular fa-envelope text-lg"></i>
+                </a>
             </div>
-          </div>
+        </section>
 
-          
-
-        </div>
-
-        <div class="col-lg-6">
-
-          <div class="progress">
-            <span class="skill">Excel <i class="val">80%</i></span>
-            <div class="progress-bar-wrap">
-              <div class="progress-bar" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
+        <!-- About & Focus Summary -->
+        <section id="about" class="space-y-6 scroll-mt-24">
+            <div class="border-l-4 border-cyan-500 pl-4">
+                <h2 class="text-2xl sm:text-3xl font-bold text-white tracking-tight">About & Core Focus</h2>
+                <p class="text-sm text-gray-400 font-mono mt-1">Full End-to-End Data Lifecycle Specialist</p>
             </div>
-          </div>
 
-          <div class="progress">
-            <span class="skill">Power BI <i class="val">90%</i></span>
-            <div class="progress-bar-wrap">
-              <div class="progress-bar" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"></div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="glass-card p-6 rounded-xl space-y-3">
+                    <div class="w-10 h-10 rounded-lg bg-cyan-500/10 flex items-center justify-center text-cyan-400 text-xl">
+                        <i class="fa-solid fa-chart-line"></i>
+                    </div>
+                    <h3 class="text-lg font-semibold text-white">Time Series Forecasting</h3>
+                    <p class="text-sm text-gray-400 leading-relaxed">
+                        Applying statistical benchmarks, gradient boosting (LightGBM), and deep learning to model multi-step temporal demand and complex seasonality.
+                    </p>
+                </div>
+
+                <div class="glass-card p-6 rounded-xl space-y-3">
+                    <div class="w-10 h-10 rounded-lg bg-violet-500/10 flex items-center justify-center text-violet-400 text-xl">
+                        <i class="fa-solid fa-network-wired"></i>
+                    </div>
+                    <h3 class="text-lg font-semibold text-white">Data Engineering & Web Scraping</h3>
+                    <p class="text-sm text-gray-400 leading-relaxed">
+                        Building automated ETL scraping pipelines, structured relational database storage (PostgreSQL/Supabase), and clean SQL data transformations.
+                    </p>
+                </div>
+
+                <div class="glass-card p-6 rounded-xl space-y-3">
+                    <div class="w-10 h-10 rounded-lg bg-emerald-500/10 flex items-center justify-center text-emerald-400 text-xl">
+                        <i class="fa-solid fa-robot"></i>
+                    </div>
+                    <h3 class="text-lg font-semibold text-white">AI Agents & RAG Architecture</h3>
+                    <p class="text-sm text-gray-400 leading-relaxed">
+                        Developing conversational assistants leveraging vector databases, semantic search, and structured LLM tool-calling for real-world workflows.
+                    </p>
+                </div>
             </div>
-          </div>
+        </section>
 
-          
-
-        </div>
-
-      </div>
-
-    </div><!-- End Skills -->
-
-    <!-- ======= Interests ======= -->
-    <div class="interests container">
-
-      <div class="section-title">
-        <h2>Interests</h2>
-      </div>
-
-      <div class="row">
-        <div class="col-lg-3 col-md-4">
-          <div class="icon-box">
-            <i class="ri-store-line" style="color: #ffbb2c;"></i>
-            <h3>Kaggle</h3>
-          </div>
-        </div>
-        <div class="col-lg-3 col-md-4 mt-4 mt-md-0">
-          <div class="icon-box">
-            <i class="ri-bar-chart-box-line" style="color: #5578ff;"></i>
-            <h3>Toward Data Science</h3>
-          </div>
-        </div>
-        <div class="col-lg-3 col-md-4 mt-4 mt-md-0">
-          <div class="icon-box">
-            <i class="ri-calendar-todo-line" style="color: #e80368;"></i>
-            <h3>Medium</h3>
-          </div>
-        </div>
-        <div class="col-lg-3 col-md-4 mt-4 mt-lg-0">
-          <div class="icon-box">
-            <i class="ri-paint-brush-line" style="color: #e361ff;"></i>
-            <h3>Reddit</h3>
-          </div>
-        </div>
-        <!--<div class="col-lg-3 col-md-4 mt-4">
-          <div class="icon-box">
-            <i class="ri-database-2-line" style="color: #47aeff;"></i>
-            <h3>Nemo Enim</h3>
-          </div>
-        </div>
-        <div class="col-lg-3 col-md-4 mt-4">
-          <div class="icon-box">
-            <i class="ri-gradienter-line" style="color: #ffa76e;"></i>
-            <h3>Eiusmod Tempor</h3>
-          </div>
-        </div>
-        <div class="col-lg-3 col-md-4 mt-4">
-          <div class="icon-box">
-            <i class="ri-file-list-3-line" style="color: #11dbcf;"></i>
-            <h3>Midela Teren</h3>
-          </div>
-        </div>
-        <div class="col-lg-3 col-md-4 mt-4">
-          <div class="icon-box">
-            <i class="ri-price-tag-2-line" style="color: #4233ff;"></i>
-            <h3>Pira Neve</h3>
-          </div>
-        </div>
-        <div class="col-lg-3 col-md-4 mt-4">
-          <div class="icon-box">
-            <i class="ri-anchor-line" style="color: #b2904f;"></i>
-            <h3>Dirada Pack</h3>
-          </div>
-        </div>
-        <div class="col-lg-3 col-md-4 mt-4">
-          <div class="icon-box">
-            <i class="ri-disc-line" style="color: #b20969;"></i>
-            <h3>Moton Ideal</h3>
-          </div>
-        </div>
-        <div class="col-lg-3 col-md-4 mt-4">
-          <div class="icon-box">
-            <i class="ri-base-station-line" style="color: #ff5828;"></i>
-            <h3>Verdo Park</h3>
-          </div>
-        </div>
-        <div class="col-lg-3 col-md-4 mt-4">
-          <div class="icon-box">
-            <i class="ri-fingerprint-line" style="color: #29cc61;"></i>
-            <h3>Flavor Nivelanda</h3>
-          </div>
-        </div>
-      </div>
-
-    </div>--><!-- End Interests -->
-
-    <!-- ======= Testimonials ======= 
-    <div class="testimonials container">
-
-      <div class="section-title">
-        <h2>Testimonials</h2>
-      </div>
-
-          <div class="swiper-slide">
-            <div class="testimonial-item">
-              <p>
-                <i class="bx bxs-quote-alt-left quote-icon-left"></i>
-                Enim nisi quem export duis labore cillum quae magna enim sint quorum nulla quem veniam duis minim tempor labore quem eram duis noster aute amet eram fore quis sint minim.
-                <i class="bx bxs-quote-alt-right quote-icon-right"></i>
-              </p>
-              <img src="assets/img/testimonials/testimonials-3.jpg" class="testimonial-img" alt="">
-              <h3>Jena Karlis</h3>
-              <h4>Store Owner</h4>
+        <!-- Featured Projects Section -->
+        <section id="projects" class="space-y-8 scroll-mt-24">
+            <div class="flex flex-col sm:flex-row sm:items-end justify-between border-l-4 border-violet-500 pl-4 gap-4">
+                <div>
+                    <h2 class="text-2xl sm:text-3xl font-bold text-white tracking-tight">Featured Projects</h2>
+                    <p class="text-sm text-gray-400 font-mono mt-1">Key repositories demonstrating business impact and technical depth</p>
+                </div>
+                <a href="https://github.com/jumacaq?tab=repositories" target="_blank" rel="noopener" class="text-xs font-mono text-cyan-400 hover:underline flex items-center gap-1">
+                    <span>View all repositories</span> <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
+                </a>
             </div>
-          </div><!-- End testimonial item 
 
-          <div class="swiper-slide">
-            <div class="testimonial-item">
-              <p>
-                <i class="bx bxs-quote-alt-left quote-icon-left"></i>
-                Fugiat enim eram quae cillum dolore dolor amet nulla culpa multos export minim fugiat minim velit minim dolor enim duis veniam ipsum anim magna sunt elit fore quem dolore labore illum veniam.
-                <i class="bx bxs-quote-alt-right quote-icon-right"></i>
-              </p>
-              <img src="assets/img/testimonials/testimonials-4.jpg" class="testimonial-img" alt="">
-              <h3>Matt Brandon</h3>
-              <h4>Freelancer</h4>
+            <!-- Projects Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+
+                <!-- Project 1 -->
+                <div class="glass-card rounded-xl p-6 flex flex-col justify-between space-y-6">
+                    <div class="space-y-4">
+                        <div class="flex items-center justify-between">
+                            <span class="p-2.5 rounded-lg bg-amber-500/10 text-amber-400 text-lg">
+                                <i class="fa-solid fa-bolt"></i>
+                            </span>
+                            <span class="text-xs font-mono px-2 py-1 rounded bg-slate-800 text-gray-300 border border-slate-700">Time Series</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-white group-hover:text-cyan-400 transition-colors">
+                            Peru Smart Energy Forecasting
+                        </h3>
+                        <p class="text-sm text-gray-400 leading-relaxed">
+                            Predictive machine learning model for national electricity demand estimation in Peru using a comprehensive multi-model benchmark.
+                        </p>
+                    </div>
+
+                    <div class="space-y-4 pt-2">
+                        <div class="flex flex-wrap gap-1.5 font-mono text-xs">
+                            <span class="px-2 py-1 rounded bg-slate-800/80 text-cyan-300">Python</span>
+                            <span class="px-2 py-1 rounded bg-slate-800/80 text-cyan-300">LightGBM</span>
+                            <span class="px-2 py-1 rounded bg-slate-800/80 text-cyan-300">Prophet</span>
+                            <span class="px-2 py-1 rounded bg-slate-800/80 text-cyan-300">PyTorch</span>
+                        </div>
+
+                        <div class="pt-2 border-t border-slate-800 flex items-center justify-between">
+                            <a href="https://github.com/jumacaq/Peru_Smart_Energy_Forecasting" target="_blank" rel="noopener" class="text-xs font-semibold text-white hover:text-cyan-400 flex items-center space-x-2">
+                                <i class="fa-brands fa-github text-base"></i>
+                                <span>View Repository</span>
+                            </a>
+                            <i class="fa-solid fa-chevron-right text-xs text-gray-500"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 2 -->
+                <div class="glass-card rounded-xl p-6 flex flex-col justify-between space-y-6">
+                    <div class="space-y-4">
+                        <div class="flex items-center justify-between">
+                            <span class="p-2.5 rounded-lg bg-cyan-500/10 text-cyan-400 text-lg">
+                                <i class="fa-solid fa-database"></i>
+                            </span>
+                            <span class="text-xs font-mono px-2 py-1 rounded bg-slate-800 text-gray-300 border border-slate-700">Data Pipeline</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-white">
+                            LATAM Market Insight
+                        </h3>
+                        <p class="text-sm text-gray-400 leading-relaxed">
+                            Automated ETL pipeline scraping daily IT job postings across LATAM, integrated with cloud relational database storage and analytics dashboard.
+                        </p>
+                    </div>
+
+                    <div class="space-y-4 pt-2">
+                        <div class="flex flex-wrap gap-1.5 font-mono text-xs">
+                            <span class="px-2 py-1 rounded bg-slate-800/80 text-cyan-300">Python</span>
+                            <span class="px-2 py-1 rounded bg-slate-800/80 text-cyan-300">Supabase</span>
+                            <span class="px-2 py-1 rounded bg-slate-800/80 text-cyan-300">Streamlit</span>
+                            <span class="px-2 py-1 rounded bg-slate-800/80 text-cyan-300">SQL</span>
+                        </div>
+
+                        <div class="pt-2 border-t border-slate-800 flex items-center justify-between">
+                            <a href="https://github.com/jumacaq/latam-market-insight" target="_blank" rel="noopener" class="text-xs font-semibold text-white hover:text-cyan-400 flex items-center space-x-2">
+                                <i class="fa-brands fa-github text-base"></i>
+                                <span>View Repository</span>
+                            </a>
+                            <i class="fa-solid fa-chevron-right text-xs text-gray-500"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 3 -->
+                <div class="glass-card rounded-xl p-6 flex flex-col justify-between space-y-6">
+                    <div class="space-y-4">
+                        <div class="flex items-center justify-between">
+                            <span class="p-2.5 rounded-lg bg-emerald-500/10 text-emerald-400 text-lg">
+                                <i class="fa-solid fa-robot"></i>
+                            </span>
+                            <span class="text-xs font-mono px-2 py-1 rounded bg-slate-800 text-gray-300 border border-slate-700">GenAI & RAG</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-white">
+                            MIA-govtech-agent
+                        </h3>
+                        <p class="text-sm text-gray-400 leading-relaxed">
+                            AI-powered conversational assistant to guide citizens through municipal administrative procedures using Retrieval-Augmented Generation (RAG).
+                        </p>
+                    </div>
+
+                    <div class="space-y-4 pt-2">
+                        <div class="flex flex-wrap gap-1.5 font-mono text-xs">
+                            <span class="px-2 py-1 rounded bg-slate-800/80 text-cyan-300">Python</span>
+                            <span class="px-2 py-1 rounded bg-slate-800/80 text-cyan-300">LangChain</span>
+                            <span class="px-2 py-1 rounded bg-slate-800/80 text-cyan-300">VectorDB</span>
+                            <span class="px-2 py-1 rounded bg-slate-800/80 text-cyan-300">HuggingFace</span>
+                        </div>
+
+                        <div class="pt-2 border-t border-slate-800 flex items-center justify-between">
+                            <a href="https://github.com/SilvanaJ90/MIA-govtech-agent" target="_blank" rel="noopener" class="text-xs font-semibold text-white hover:text-cyan-400 flex items-center space-x-2">
+                                <i class="fa-brands fa-github text-base"></i>
+                                <span>Collaborative Repo</span>
+                            </a>
+                            <i class="fa-solid fa-chevron-right text-xs text-gray-500"></i>
+                        </div>
+                    </div>
+                </div>
+
             </div>
-          </div><!-- End testimonial item 
+        </section>
 
-          <div class="swiper-slide">
-            <div class="testimonial-item">
-              <p>
-                <i class="bx bxs-quote-alt-left quote-icon-left"></i>
-                Quis quorum aliqua sint quem legam fore sunt eram irure aliqua veniam tempor noster veniam enim culpa labore duis sunt culpa nulla illum cillum fugiat legam esse veniam culpa fore nisi cillum quid.
-                <i class="bx bxs-quote-alt-right quote-icon-right"></i>
-              </p>
-              <img src="assets/img/testimonials/testimonials-5.jpg" class="testimonial-img" alt="">
-              <h3>John Larson</h3>
-              <h4>Entrepreneur</h4>
+        <!-- Tech Stack Section -->
+        <section id="techstack" class="space-y-8 scroll-mt-24">
+            <div class="border-l-4 border-cyan-500 pl-4">
+                <h2 class="text-2xl sm:text-3xl font-bold text-white tracking-tight">Tech Stack & Tools</h2>
+                <p class="text-sm text-gray-400 font-mono mt-1">Core technical skills and technologies used in production</p>
             </div>
-          </div><!-- End testimonial item -->
 
-        </div>
-        <div class="swiper-pagination"></div>
-      </div>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
 
-      <div class="owl-carousel testimonials-carousel">
+                <!-- Category 1 -->
+                <div class="glass-card p-5 rounded-xl space-y-4">
+                    <h3 class="text-sm font-mono text-cyan-400 font-semibold uppercase tracking-wider">Languages</h3>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="px-3 py-1.5 rounded-lg bg-slate-800/90 text-sm font-medium text-gray-200 border border-slate-700/60 flex items-center gap-2">
+                            <i class="fa-brands fa-python text-yellow-400"></i> Python
+                        </span>
+                        <span class="px-3 py-1.5 rounded-lg bg-slate-800/90 text-sm font-medium text-gray-200 border border-slate-700/60 flex items-center gap-2">
+                            <i class="fa-solid fa-database text-blue-400"></i> SQL
+                        </span>
+                    </div>
+                </div>
 
-      </div>
+                <!-- Category 2 -->
+                <div class="glass-card p-5 rounded-xl space-y-4">
+                    <h3 class="text-sm font-mono text-violet-400 font-semibold uppercase tracking-wider">Data Science & ML</h3>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="px-2.5 py-1 rounded-md bg-slate-800/90 text-xs font-medium text-gray-300">Pandas</span>
+                        <span class="px-2.5 py-1 rounded-md bg-slate-800/90 text-xs font-medium text-gray-300">NumPy</span>
+                        <span class="px-2.5 py-1 rounded-md bg-slate-800/90 text-xs font-medium text-gray-300">Scikit-Learn</span>
+                        <span class="px-2.5 py-1 rounded-md bg-slate-800/90 text-xs font-medium text-gray-300">LightGBM</span>
+                        <span class="px-2.5 py-1 rounded-md bg-slate-800/90 text-xs font-medium text-gray-300">Prophet</span>
+                        <span class="px-2.5 py-1 rounded-md bg-slate-800/90 text-xs font-medium text-gray-300">PyTorch</span>
+                        <span class="px-2.5 py-1 rounded-md bg-slate-800/90 text-xs font-medium text-gray-300">Statsmodels</span>
+                    </div>
+                </div>
 
-    </div><!-- End Testimonials  -->
+                <!-- Category 3 -->
+                <div class="glass-card p-5 rounded-xl space-y-4">
+                    <h3 class="text-sm font-mono text-emerald-400 font-semibold uppercase tracking-wider">Databases & Cloud</h3>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="px-2.5 py-1 rounded-md bg-slate-800/90 text-xs font-medium text-gray-300">Supabase</span>
+                        <span class="px-2.5 py-1 rounded-md bg-slate-800/90 text-xs font-medium text-gray-300">PostgreSQL</span>
+                        <span class="px-2.5 py-1 rounded-md bg-slate-800/90 text-xs font-medium text-gray-300">SQLite</span>
+                        <span class="px-2.5 py-1 rounded-md bg-slate-800/90 text-xs font-medium text-gray-300">Firebase</span>
+                        <span class="px-2.5 py-1 rounded-md bg-slate-800/90 text-xs font-medium text-gray-300">GCP</span>
+                    </div>
+                </div>
 
-  </section><!-- End About Section -->
+                <!-- Category 4 -->
+                <div class="glass-card p-5 rounded-xl space-y-4">
+                    <h3 class="text-sm font-mono text-amber-400 font-semibold uppercase tracking-wider">Deployment & Tools</h3>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="px-2.5 py-1 rounded-md bg-slate-800/90 text-xs font-medium text-gray-300">Streamlit</span>
+                        <span class="px-2.5 py-1 rounded-md bg-slate-800/90 text-xs font-medium text-gray-300">Docker</span>
+                        <span class="px-2.5 py-1 rounded-md bg-slate-800/90 text-xs font-medium text-gray-300">Git / GitHub</span>
+                        <span class="px-2.5 py-1 rounded-md bg-slate-800/90 text-xs font-medium text-gray-300">VS Code</span>
+                        <span class="px-2.5 py-1 rounded-md bg-slate-800/90 text-xs font-medium text-gray-300">Google Colab</span>
+                    </div>
+                </div>
 
-  <!-- ======= Resume Section ======= -->
-  <section id="resume" class="resume">
-    <div class="container">
-
-      <div class="section-title">
-        <h2>Resume</h2>
-        <p>Check My Resume</p>
-      </div>
-
-      <div class="row">
-        <div class="col-lg-6">
-          <h3 class="resume-title">Sumary</h3>
-          <div class="resume-item pb-0">
-            <h4>Juan Martin Campos Quintana</h4>
-            <p><em>As a budding data analyst, I harness the power of numbers to unearth insights and drive informed decisions. Proficient in Python, SQL, and data visualization tools like Power BI, I thrive on transforming raw data into actionable intelligence. With a passion for problem-solving and a commitment to accuracy, I am poised to contribute fresh perspectives and analytical prowess to any team.
-              </em></p>
-            <p>
-            <ul>
-              <li>Lima, Peru</li>
-              <!--<li>(123) 456-7891</li>-->
-              <li>data_analyst_jcq@outlook.com</li>
-            </ul>
-            </p>
-          </div>
-
-          <h3 class="resume-title">Education</h3>
-          <div class="resume-item">
-            <h4><a href="https://www.coursera.org/account/accomplishments/professional-cert/6F6YJEDJSQR2"  target="_blank">Google Data Analytics Certificate</a></h4>
-            <h5>2022 - 2023</h5>
-            <p><em>Coursera</em></p>
-            <p>Those who earn the Google Data Analytics Professional Certificate
-              have completed eight courses, developed by Google, that include
-              hands-on, practice-based assessments and are designed to prepare
-              them for introductory-level roles in Data Analytics. They are competent
-              in tools and platforms including spreadsheets, SQL, Tableau, and R.
-              They know how to prepare, process, analyze, and share data for
-              thoughtful action.
-              </p>
-          </div>
-          <div class="resume-item">
-            <h4><a href="https://app.aluracursos.com/user/data-analyst-jcq/program/9/certificate"  target="_blank">Bootcamp Data Science</a></h4>
-            <h5>2023 - 2024</h5>
-            <p><em>Alura Latam</em></p>
-            <p>Bootcamp where it was developed four modules: data analysis with Python, statistics, and visualization, machine learning with scikit learn libraries, and AI applied to NLP</p>
-          </div>
-          <div class="resume-item">
-            <h4><a href="assets\img\Excel 2019 Expert.pdf" target="_blank">Microsoft Office Specialist</a></h4>>
-            <h5>2022</h5>
-            <p><em>Microsoft</em></p>
-            <p>Microsoft Office Specialist (MOS) is an industry-recognized certification program that validates skills in Microsoft Office applications</p>
-          </div>
-        </div>
-        <div class="col-lg-6">
-          <!--<h3 class="resume-title">Professional Experience</h3>
-          <div class="resume-item">
-            <h4>Senior graphic design specialist</h4>
-            <h5>2019 - Present</h5>
-            <p><em>Experion, New York, NY </em></p>
-            <p>
-            <ul>
-              <li>Lead in the design, development, and implementation of the graphic, layout, and production communication materials</li>
-              <li>Delegate tasks to the 7 members of the design team and provide counsel on all aspects of the project. </li>
-              <li>Supervise the assessment of all graphic materials in order to ensure quality and accuracy of the design</li>
-              <li>Oversee the efficient use of production project budgets ranging from $2,000 - $25,000</li>
-            </ul>
-            </p>
-          </div>
-          <div class="resume-item">
-            <h4>Graphic design specialist</h4>
-            <h5>2017 - 2018</h5>
-            <p><em>Stepping Stone Advertising, New York, NY</em></p>
-            <p>
-            <ul>
-              <li>Developed numerous marketing programs (logos, brochures,infographics, presentations, and advertisements).</li>
-              <li>Managed up to 5 projects or tasks at a given time while under pressure</li>
-              <li>Recommended and consulted with clients on the most appropriate graphic design</li>
-              <li>Created 4+ design presentations and proposals a month for clients and account managers</li>
-            </ul>
-            </p>
-          </div>-->
-        </div>
-      </div>
-
-    </div>
-  </section><!-- End Resume Section -->
-
-  <!-- ======= Services Section ======= -->
-  <section id="services" class="services">
-    <div class="container">
-
-      <div class="section-title">
-        <h2>Portfolio</h2>
-        <p>My Best Projects</p>
-      </div>
-
-      <div class="row">
-        <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
-          <div class="icon-box">
-            <div class="icon"><i class="bx bx-file"></i></div>
-            <h4><a href="https://github.com/jumacaq/Robot_Trading_BTC-USD" target="_blank">Robot Trading BTC-USD</a></h4>
-            <p>Colab notebook where I develop a robot that makes purchase - sale decisions of the Bitcoin cryptocurrency</p>
-          </div>
-        </div>
-
-        <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4 mt-md-0">
-          <div class="icon-box">
-            <div class="icon"><i class="bx bx-file"></i></div>
-            <h4><a href="https://github.com/jumacaq/atencion_oncologica_peru_2022_2023" target="_blank">Oncology Care Peru 2022-2023</a></h4>
-            <p>Evaluation of oncological medical care provided by the Intangible Solidarity Health Fund (FISSAL) during the period 2022 and first half of 2023.</p>
-          </div>
-        </div>
-
-        <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4 mt-lg-0">
-          <div class="icon-box">
-            <div class="icon"><i class="bx bx-file"></i></div>
-            <h4><a href="https://github.com/jumacaq/esencia_del_cliente" target="_blank">Knowing the client's habits</a></h4>
-            <p>I developed a clustering-type machine learning model to group customers considering their characteristics, preferences, and consumption habits.</p>
-          </div>
-        </div>
-
-        <!--<div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4">
-          <div class="icon-box">
-            <div class="icon"><i class="bx bx-world"></i></div>
-            <h4><a href="">Nemo Enim</a></h4>
-            <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis</p>
-          </div>
-        </div>
-
-        <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4">
-          <div class="icon-box">
-            <div class="icon"><i class="bx bx-slideshow"></i></div>
-            <h4><a href="">Dele cardo</a></h4>
-            <p>Quis consequatur saepe eligendi voluptatem consequatur dolor consequuntur</p>
-          </div>
-        </div>
-
-        <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4">
-          <div class="icon-box">
-            <div class="icon"><i class="bx bx-arch"></i></div>
-            <h4><a href="">Divera don</a></h4>
-            <p>Modi nostrum vel laborum. Porro fugit error sit minus sapiente sit aspernatur</p>
-          </div>
-        </div>
-
-      </div>-->
-
-    </div>
-  </section><!-- End Services Section -->
-
-  <!-- ======= Portfolio Section ======= 
-  <section id="portfolio" class="portfolio">
-    <div class="container">
-
-      <div class="section-title">
-        <h2>Portfolio</h2>
-        <p>My Works</p>
-      </div>
-
-      <div class="row">
-        <div class="col-lg-12 d-flex justify-content-center">
-          <ul id="portfolio-flters">
-            <li data-filter="*" class="filter-active">All</li>
-            <li data-filter=".filter-app">App</li>
-            <li data-filter=".filter-card">Card</li>
-            <li data-filter=".filter-web">Web</li>
-          </ul>
-        </div>
-      </div>
-
-      <div class="row portfolio-container">
-
-        <div class="col-lg-4 col-md-6 portfolio-item filter-app">
-          <div class="portfolio-wrap">
-            <img src="assets/img/portfolio/portfolio-1.jpg" class="img-fluid" alt="">
-            <div class="portfolio-info">
-              <h4>App 1</h4>
-              <p>App</p>
-              <div class="portfolio-links">
-                <a href="assets/img/portfolio/portfolio-1.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox" title="App 1"><i class="bx bx-plus"></i></a>
-                <a href="portfolio-details.html" data-gallery="portfolioDetailsGallery" data-glightbox="type: external" class="portfolio-details-lightbox" title="Portfolio Details"><i class="bx bx-link"></i></a>
-              </div>
             </div>
-          </div>
-        </div>
+        </section>
 
-        <div class="col-lg-4 col-md-6 portfolio-item filter-web">
-          <div class="portfolio-wrap">
-            <img src="assets/img/portfolio/portfolio-2.jpg" class="img-fluid" alt="">
-            <div class="portfolio-info">
-              <h4>Web 3</h4>
-              <p>Web</p>
-              <div class="portfolio-links">
-                <a href="assets/img/portfolio/portfolio-2.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox" title="Web 3"><i class="bx bx-plus"></i></a>
-                <a href="portfolio-details.html" data-gallery="portfolioDetailsGallery" data-glightbox="type: external" class="portfolio-details-lightbox" title="Portfolio Details"><i class="bx bx-link"></i></a>
-              </div>
+        <!-- Contact & Banner Section -->
+        <section id="contact" class="glass-card rounded-2xl p-8 sm:p-12 text-center space-y-6 relative overflow-hidden scroll-mt-24">
+            <div class="max-w-xl mx-auto space-y-4">
+                <h2 class="text-3xl font-bold text-white tracking-tight">Let's Work Together</h2>
+                <p class="text-gray-400 text-sm sm:text-base">
+                    Interested in collaborating on a data project, discussing Time Series models, or exploring ML Engineering opportunities?
+                </p>
+                <div class="pt-4 flex flex-wrap justify-center gap-4">
+                    <a href="mailto:adrimarcprr@gmail.com" class="px-6 py-3 rounded-lg text-sm font-semibold bg-cyan-500 text-obsidian font-medium hover:bg-cyan-400 transition-all flex items-center space-x-2">
+                        <i class="fa-regular fa-envelope"></i>
+                        <span>Send Email</span>
+                    </a>
+                    <a href="https://www.linkedin.com/in/jumacaq/" target="_blank" rel="noopener" class="px-6 py-3 rounded-lg text-sm font-semibold border border-slate-700 bg-slate-800/50 text-white hover:bg-slate-800 transition-all flex items-center space-x-2">
+                        <i class="fa-brands fa-linkedin"></i>
+                        <span>Connect on LinkedIn</span>
+                    </a>
+                </div>
             </div>
-          </div>
-        </div>
+        </section>
 
-        <div class="col-lg-4 col-md-6 portfolio-item filter-app">
-          <div class="portfolio-wrap">
-            <img src="assets/img/portfolio/portfolio-3.jpg" class="img-fluid" alt="">
-            <div class="portfolio-info">
-              <h4>App 2</h4>
-              <p>App</p>
-              <div class="portfolio-links">
-                <a href="assets/img/portfolio/portfolio-3.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox" title="App 2"><i class="bx bx-plus"></i></a>
-                <a href="portfolio-details.html" data-gallery="portfolioDetailsGallery" data-glightbox="type: external" class="portfolio-details-lightbox" title="Portfolio Details"><i class="bx bx-link"></i></a>
-              </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="border-t border-slate-800/80 mt-24 py-8 text-center text-xs text-gray-500">
+        <div class="max-w-6xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-4">
+            <p>© 2026 Juan Campos Quintana. All rights reserved.</p>
+            <div class="flex items-center space-x-6 text-gray-400 font-mono">
+                <a href="https://github.com/jumacaq" target="_blank" rel="noopener" class="hover:text-cyan-400">GitHub</a>
+                <a href="https://www.linkedin.com/in/jumacaq/" target="_blank" rel="noopener" class="hover:text-cyan-400">LinkedIn</a>
+                <a href="mailto:adrimarcprr@gmail.com" class="hover:text-cyan-400">Email</a>
             </div>
-          </div>
         </div>
+    </footer>
 
-        <div class="col-lg-4 col-md-6 portfolio-item filter-card">
-          <div class="portfolio-wrap">
-            <img src="assets/img/portfolio/portfolio-4.jpg" class="img-fluid" alt="">
-            <div class="portfolio-info">
-              <h4>Card 2</h4>
-              <p>Card</p>
-              <div class="portfolio-links">
-                <a href="assets/img/portfolio/portfolio-4.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox" title="Card 2"><i class="bx bx-plus"></i></a>
-                <a href="portfolio-details.html" data-gallery="portfolioDetailsGallery" data-glightbox="type: external" class="portfolio-details-lightbox" title="Portfolio Details"><i class="bx bx-link"></i></a>
-              </div>
-            </div>
-          </div>
-        </div>
+    <!-- JS for Mobile Toggle -->
+    <script>
+        const btn = document.getElementById('mobile-menu-btn');
+        const menu = document.getElementById('mobile-menu');
 
-        <div class="col-lg-4 col-md-6 portfolio-item filter-web">
-          <div class="portfolio-wrap">
-            <img src="assets/img/portfolio/portfolio-5.jpg" class="img-fluid" alt="">
-            <div class="portfolio-info">
-              <h4>Web 2</h4>
-              <p>Web</p>
-              <div class="portfolio-links">
-                <a href="assets/img/portfolio/portfolio-5.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox" title="Web 2"><i class="bx bx-plus"></i></a>
-                <a href="portfolio-details.html" data-gallery="portfolioDetailsGallery" data-glightbox="type: external" class="portfolio-details-lightbox" title="Portfolio Details"><i class="bx bx-link"></i></a>
-              </div>
-            </div>
-          </div>
-        </div>
+        btn.addEventListener('click', () => {
+            menu.classList.toggle('hidden');
+        });
 
-        <div class="col-lg-4 col-md-6 portfolio-item filter-app">
-          <div class="portfolio-wrap">
-            <img src="assets/img/portfolio/portfolio-6.jpg" class="img-fluid" alt="">
-            <div class="portfolio-info">
-              <h4>App 3</h4>
-              <p>App</p>
-              <div class="portfolio-links">
-                <a href="assets/img/portfolio/portfolio-6.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox" title="App 3"><i class="bx bx-plus"></i></a>
-                <a href="portfolio-details.html" data-gallery="portfolioDetailsGallery" data-glightbox="type: external" class="portfolio-details-lightbox" title="Portfolio Details"><i class="bx bx-link"></i></a>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-lg-4 col-md-6 portfolio-item filter-card">
-          <div class="portfolio-wrap">
-            <img src="assets/img/portfolio/portfolio-7.jpg" class="img-fluid" alt="">
-            <div class="portfolio-info">
-              <h4>Card 1</h4>
-              <p>Card</p>
-              <div class="portfolio-links">
-                <a href="assets/img/portfolio/portfolio-7.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox" title="Card 1"><i class="bx bx-plus"></i></a>
-                <a href="portfolio-details.html" data-gallery="portfolioDetailsGallery" data-glightbox="type: external" class="portfolio-details-lightbox" title="Portfolio Details"><i class="bx bx-link"></i></a>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-lg-4 col-md-6 portfolio-item filter-card">
-          <div class="portfolio-wrap">
-            <img src="assets/img/portfolio/portfolio-8.jpg" class="img-fluid" alt="">
-            <div class="portfolio-info">
-              <h4>Card 3</h4>
-              <p>Card</p>
-              <div class="portfolio-links">
-                <a href="assets/img/portfolio/portfolio-8.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox" title="Card 3"><i class="bx bx-plus"></i></a>
-                <a href="portfolio-details.html" data-gallery="portfolioDetailsGallery" data-glightbox="type: external" class="portfolio-details-lightbox" title="Portfolio Details"><i class="bx bx-link"></i></a>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-lg-4 col-md-6 portfolio-item filter-web">
-          <div class="portfolio-wrap">
-            <img src="assets/img/portfolio/portfolio-9.jpg" class="img-fluid" alt="">
-            <div class="portfolio-info">
-              <h4>Web 3</h4>
-              <p>Web</p>
-              <div class="portfolio-links">
-                <a href="assets/img/portfolio/portfolio-9.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox" title="Web 3"><i class="bx bx-plus"></i></a>
-                <a href="portfolio-details.html" data-gallery="portfolioDetailsGallery" data-glightbox="type: external" class="portfolio-details-lightbox" title="Portfolio Details"><i class="bx bx-link"></i></a>
-              </div>
-            </div>
-          </div>
-        </div>
-
-      </div>
-
-    </div>
-  </section> End Portfolio Section -->
-
-  <!-- ======= Contact Section ======= -->
-  <section id="contact" class="contact">
-    <div class="container">
-
-      <div class="section-title">
-        <h2>Contact</h2>
-        <p>Contact Me</p>
-      </div>
-
-      <div class="row mt-2">
-
-        <div class="col-md-6 d-flex align-items-stretch">
-          <div class="info-box">
-            <i class="bx bx-map"></i>
-            <h3>My Address</h3>
-            <p>Lima - Peru</p>
-          </div>
-        </div>
-
-        <div class="col-md-6 mt-4 mt-md-0 d-flex align-items-stretch">
-          <div class="info-box">
-            <i class="bx bx-share-alt"></i>
-            <h3>Social Profiles</h3>
-            <div class="social-links">
-              <a href="https://github.com/jumacaq" target="_blank" class="github"><i class="bi bi-github"></i></a>
-              <a href="https://www.linkedin.com/in/juan-campos-q/" target="_blank" class="linkedin"><i class="bi bi-linkedin"></i></a>
-              <!--<a href="#" class="linkedin"><i class="bi bi-linkedin"></i></a>-->
-            </div>
-          </div>
-        </div>
-
-        <div class="col-md-6 mt-4 d-flex align-items-stretch">
-          <div class="info-box">
-            <i class="bx bx-envelope"></i>
-            <h3>Email Me</h3>
-            <a href="mailto:data_analyst_jcq@outlook.com" target="_blank">data_analyst_jcq@outlook.com</a>
-            <!--<p>contact@example.com</p>-->
-          </div>
-        </div>
-        <div class="col-md-6 mt-4 d-flex align-items-stretch">
-          <div class="info-box">
-            <i class="bx bx-phone-call"></i>
-            <h3>Whats App</h3>
-            <a href="https://wa.me/51975539299" target="_blank">+51 975539299</a>
-            
-          </div>
-        </div>
-      </div>
-
-      <!--<form action="forms/contact.php" method="post" role="form" class="php-email-form mt-4">
-        <div class="row">
-          <div class="col-md-6 form-group">
-            <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" required>
-          </div>
-          <div class="col-md-6 form-group mt-3 mt-md-0">
-            <input type="email" class="form-control" name="email" id="email" placeholder="Your Email" required>
-          </div>
-        </div>
-        <div class="form-group mt-3">
-          <input type="text" class="form-control" name="subject" id="subject" placeholder="Subject" required>
-        </div>
-        <div class="form-group mt-3">
-          <textarea class="form-control" name="message" rows="5" placeholder="Message" required></textarea>
-        </div>
-        <div class="my-3">
-          <div class="loading">Loading</div>
-          <div class="error-message"></div>
-          <div class="sent-message">Your message has been sent. Thank you!</div>
-        </div>
-        <div class="text-center"><button type="submit">Send Message</button></div>
-      </form>-->
-
-    </div>
-  </section><!-- End Contact Section -->
-
-  <div class="credits">
-    <!-- All the links in the footer should remain intact. -->
-    <!-- You can delete the links only if you purchased the pro version. -->
-    <!-- Licensing information: https://bootstrapmade.com/license/ -->
-    <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/personal-free-resume-bootstrap-template/ -->
-    Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
-  </div>
-
-  <!-- Vendor JS Files -->
-  <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
-  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-  <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
-  <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
-  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
-  <script src="assets/vendor/waypoints/noframework.waypoints.js"></script>
-  <script src="assets/vendor/php-email-form/validate.js"></script>
-
-  <!-- Template Main JS File -->
-  <script src="assets/js/main.js"></script>
-
+        // Close menu on link click
+        document.querySelectorAll('#mobile-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                menu.classList.add('hidden');
+            });
+        });
+    </script>
 </body>
-
 </html>
